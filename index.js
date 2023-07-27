@@ -6,12 +6,14 @@ for (var i = 0; i < arrayLength; i++) {
     var buttonInnerHTML = this.innerHTML;
 
     makeSound(buttonInnerHTML);
+    buttonAnimation(buttonInnerHTML);
 
   });
 }
 
 document.addEventListener("keydown", function (event) {
   makeSound(event.key);
+  buttonAnimation(event.key);
 
 });
 
@@ -55,4 +57,9 @@ function makeSound(key) {
     default:
       console.log(buttonInnerHTML);
   }
+}
+
+function buttonAnimation(currentKey){
+  var activeButtton =  document.querySelector("." + currentKey);
+  activeButtton.classList.add("pressed");
 }
